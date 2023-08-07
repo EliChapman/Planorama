@@ -43,6 +43,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Credits
 
-This project was created by both Eli Chapman and Chase Eichholz.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Adobe Illustrator was used to create every PNG and SVG unless otherwise specified.
+* This project was created by Eli Chapman and Chase Eichholz.
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Bootstrap was used as a baseline for a lot of the styling, though the themes used are heavily altered from the default.
+* Adobe Illustrator was used to create every PNG and SVG unless otherwise specified.
