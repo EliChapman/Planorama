@@ -1,0 +1,18 @@
+$primary: #52A89E;
+$secondary: #7383B2;
+$green: rgb(101, 189, 49);
+
+@import "~bootstrap/scss/bootstrap";
+
+[data-bs-theme="light"] {
+    --bs-body-bg: #f4f4f4;
+    --light: #d2d2d2;
+    --dark: #6F7588;
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #2f2f2f;
+    --bs-body-color: #d2d2d2;
+    --light: #5B5B5B;
+    --dark: #355e74;
+}

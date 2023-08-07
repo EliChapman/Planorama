@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg';
+import logo from '../../../assets/logo.svg';
 import './Home.css';
 
 function Home() {
@@ -18,6 +18,7 @@ function Home() {
           Learn React
         </a>
       </header>
+      <button className="btn btn-primary">Click me</button>
     </div>
   );
 }

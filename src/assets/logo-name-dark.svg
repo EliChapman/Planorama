@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1084.53 342.07">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: SegoeUI-Semilight, 'Segoe UI';
+        font-size: 220px;
+        font-weight: 300;
+        letter-spacing: .01em;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-4);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="189.11" y1="23.95" x2="70.23" y2="23.53" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#62c5b9"/>
+      <stop offset=".23" stop-color="#5bb9ae"/>
+      <stop offset=".64" stop-color="#499a92"/>
+      <stop offset="1" stop-color="#377a74"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="170.92" y1="137.63" x2="102.77" y2="62.49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#57b1a7"/>
+      <stop offset=".29" stop-color="#50a59c"/>
+      <stop offset=".81" stop-color="#3e867f"/>
+      <stop offset="1" stop-color="#377a74"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="62.61" y1="137.36" x2="124.03" y2="113.96" xlink:href="#linear-gradient-2"/>
+    <linearGradient id="linear-gradient-4" x1="48.4" y1=".46" x2="45.59" y2="252.64" xlink:href="#linear-gradient"/>
+  </defs>
+  <g>
+    <path class="cls-4" d="m96.56.25h58.95c12.57,0,22.76,10.19,22.76,22.76v24.06H59.42v-9.68C59.42,16.88,76.05.25,96.56.25Z"/>
+    <path class="cls-1" d="m125.15,47.07v58.52h-30.32v46.82h60.68c12.57,0,22.76-10.19,22.76-22.76V47.07h-53.12Z"/>
+    <path class="cls-3" d="m59.42,105.59h65.73v27.85c0,10.47-8.49,18.97-18.97,18.97h-46.76v-46.82Z"/>
+    <path class="cls-5" d="m22.76,0C10.19,0,0,10.19,0,22.76v210.19c0,12.56,10.19,22.76,22.76,22.76h36.66V37.14C59.42,16.63,76.05,0,96.56,0H22.76Z"/>
+  </g>
+  <text class="cls-2" transform="translate(180.27 255.7)"><tspan x="0" y="0">lanorama</tspan></text>
+</svg>
