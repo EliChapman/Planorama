@@ -3,7 +3,7 @@ import './Home.css';
 
 function Home() {
   return (
-    <div className="home-page">
+    <div className="home-page content">
       <header className="home-header">
         <img src={logo} className="home-logo" alt="logo" />
         <p>

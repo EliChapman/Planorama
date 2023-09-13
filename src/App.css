@@ -1,4 +1,9 @@
 .App {
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
+    height: 100vh;
+}
+
+.content {
+    max-height: 100%
 }
