@@ -1,0 +1,51 @@
+/* Calendar.css */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  width: 75%;
+  height: 100%;
+  z-index: 1;
+}
+
+.square {
+  aspect-ratio: 1;
+  position: relative;
+  width: 75%;
+  margin: 10% auto 0;
+  background-color: var(--bs-body-bg);
+  border-radius: 5px;
+}
+
+.glow::before , .glow::after {
+  content: '';
+  position: absolute;
+  left: -2.5px;
+  top: -2.5px;
+  background-color: black;
+  background-image: none;
+  background-size: 400%;
+  border-radius: 5px;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -1;
+  transition: background-image 5.3s ease;
+}
+
+.glow:hover::after, .glow:hover::before {
+  background-image: linear-gradient(90deg, var(--highlight-warm-dark), var(--highlight-cold), var(--highlight-warm-dark));
+  background-size: 400%;
+
+  animation: border-spin 4.5s ease infinite;
+}
+
+@keyframes border-spin {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 400% 400%;
+  }
+}

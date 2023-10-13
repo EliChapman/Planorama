@@ -1,7 +1,20 @@
+.navbar-login-btn {
+    margin-right: 1%;
+}
+
 .navbar-logo {
     width: 200px;
 }
 
 .navbar-nav {
     font-size: 18pt;
+}
+
+.theme-toggle {
+    aspect-ratio: 1;
+    width: 40px;
+}
+
+.theme-icon {
+    font-size: 50pt;
 }
