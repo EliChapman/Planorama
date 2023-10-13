@@ -1,5 +1,11 @@
 .home-page {
     text-align: center;
+    height: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
 }
   
 .home-logo {
@@ -13,16 +19,7 @@
     .home-logo {
         animation: App-logo-spin infinite 15s linear;
     }
-}
-  
-.home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-}
-  
+} 
 
   
 @keyframes App-logo-spin {

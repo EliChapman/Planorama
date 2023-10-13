@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 
 import logoLight from '../../assets/logo-name-light.svg'
 import logoDark from '../../assets/logo-name-dark.svg'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+
 import { NavLink } from 'react-router-dom';
 import './Navbar.css'
 
@@ -37,11 +41,17 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <button className="navbar-login-button btn btn-primary" type="button">
+        <button className="navbar-login-btn btn btn-primary" type="button">
             Login
-        </button>
-        <button className="theme-toggle" type="button" onClick={() => ToggleTheme(updateStateTheme)}>
-          <span>{stateTheme}</span>
+        </button> 
+        <button className="btn theme-toggle" type="button" onClick={() => ToggleTheme(updateStateTheme)}>
+          <span>
+            {
+              stateTheme === 'light' ? 
+              <FontAwesomeIcon icon={faMoon} /> : 
+              <FontAwesomeIcon icon={faSun} />
+            }
+          </span>
         </button>
       </div>
     </nav>

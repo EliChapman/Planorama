@@ -14,7 +14,7 @@ if (!localStorage.getItem('theme')) {
   localStorage.setItem('theme', window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
 }
 
-function App() {
+const App = () => {
   const [themeValue, updateThemeValue] = useState(
     localStorage.getItem('theme')
   );
@@ -33,9 +33,10 @@ function App() {
       document.removeEventListener('themeChange', handleLocalStorageChange);
     };
   })
+
   return (
-    <div className="App" data-bs-theme={themeValue}>
-      <BrowserRouter>
+    <div className="App" data-bs-theme={ themeValue }>
+      <BrowserRouter >
         <Navbar />
         <Routes>
           <Route exact path='/' element={<Home />} />

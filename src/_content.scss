@@ -1,18 +1,50 @@
-$primary: #52A89E;
-$secondary: #7383B2;
-$green: rgb(101, 189, 49);
+$highlight: hsl(173, 34%, 49%);
+$primary: $highlight;
 
 @import "~bootstrap/scss/bootstrap";
 
+:root {
+    --highlight-h: 173; 
+    --highlight-s: 34%;
+    --highlight-l: 49%;
+    --highlight-hsl: var(--highlight-h), var(--highlight-s), var(--highlight-l);
+
+    --highlight: hsl(var(--highlight-hsl));
+    --highlight-10: hsla(var(--highlight-hsl), .1);
+    --highlight-20: hsla(var(--highlight-hsl), .2);
+    --highlight-30: hsla(var(--highlight-hsl), .3);
+    --highlight-40: hsla(var(--highlight-hsl), .4);
+    --highlight-50: hsla(var(--highlight-hsl), .5);
+    --highlight-60: hsla(var(--highlight-hsl), .6);
+    --highlight-70: hsla(var(--highlight-hsl), .7);
+    --highlight-80: hsla(var(--highlight-hsl), .8);
+    --highlight-90: hsla(var(--highlight-hsl), .9);
+
+    --highlight-warm: hsl(calc(var(--highlight-h) + 20), var(--highlight-s), var(--highlight-l));
+    --highlight-warm-light: hsl(calc(var(--highlight-h) + 20), var(--highlight-s), calc(var(--highlight-l) / .75));
+    --highlight-warm-dark: hsl(calc(var(--highlight-h) + 20), var(--highlight-s), calc(var(--highlight-l) * .75));
+
+    --highlight-cold: hsl(calc(var(--highlight-h) - 20), var(--highlight-s), var(--highlight-l));
+    --highlight-cold-light: hsl(calc(var(--highlight-h) - 20), var(--highlight-s), calc(var(--highlight-l) / .75));
+    --highlight-cold-dark: hsl(calc(var(--highlight-h) - 20), var(--highlight-s), calc(var(--highlight-l) * .75));
+
+    --highlight-low: hsl(var(--highlight-h), calc(var(--highlight-s) / 2), var(--highlight-l));
+    --highlight-lowest: hsl(var(--highlight-h), calc(var(--highlight-s) / 4), var(--highlight-l));
+
+    --highlight-light: hsl(var(--highlight-h), var(--highlight-s), calc(var(--highlight-l) / .9));
+    --highlight-lighter: hsl(var(--highlight-h), var(--highlight-s), calc(var(--highlight-l) / .75));
+
+    --highlight-dark: hsl(var(--highlight-h), var(--highlight-s), calc(var(--highlight-l) * .9));
+    --highlight-darker: hsl(var(--highlight-h), var(--highlight-s), calc(var(--highlight-l) * .75));
+}
+
+
+
 [data-bs-theme="light"] {
     --bs-body-bg: #f4f4f4;
-    --light: #d2d2d2;
-    --dark: #6F7588;
 }
 
 [data-bs-theme="dark"] {
     --bs-body-bg: #2f2f2f;
     --bs-body-color: #d2d2d2;
-    --light: #5B5B5B;
-    --dark: #355e74;
 }
