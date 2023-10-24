@@ -7,27 +7,78 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
 }
-  
-.home-logo {
-    height: 30vmin;
-    pointer-events: none;
-    margin-top: 5vmin;
-    margin-bottom: 5vmin;
-}
-  
-@media (prefers-reduced-motion: no-preference) {
-    .home-logo {
-        animation: App-logo-spin infinite 15s linear;
-    }
-} 
 
-  
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.features {
+    margin-top: 10vh;
+    width:  100%;
+    margin-bottom: 10vh;
 }
-  
+
+.planning-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50vh;
+}
+
+.planning-img {
+    border-radius: 20vh 0 0 20vh;
+    background-color: var(--highlight-40);
+    margin-right: 2vw;
+    width: 45%;
+    height: 40vh;
+}
+
+.planning-text {
+    width: 45%;
+    height: 40vh;
+    margin: auto;
+    margin-left: 2vw;
+    text-align: right;
+}
+
+.photo-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50vh;
+}
+
+.photo-img {
+    border-radius: 0 20vh 20vh 0;
+    background-color: var(--highlight-40);
+    margin-left: 2vw;
+    width: 45%;
+    height: 40vh;
+}
+
+.photo-text {
+    margin: auto;
+    margin-right: 2vw;
+    width: 45%;
+    height: 40vh;
+    text-align: left;
+}
+
+.memories-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50vh;
+}
+
+.memories-img {
+    border-radius: 20vh 0 0 20vh;
+    background-color: var(--highlight-40);
+    margin-right: 2vw;
+    width: 45%;
+    height: 40vh;
+}
+
+.memories-text {
+    width: 45%;
+    height: 40vh;
+    margin: auto;
+    margin-left: 2vw;
+    text-align: right;
+}

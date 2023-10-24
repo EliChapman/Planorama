@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import logoLight from '../../assets/logo-name-light.svg'
 import logoDark from '../../assets/logo-name-dark.svg'
+import logo from '../../assets/logo.svg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
-import { NavLink } from 'react-router-dom';
+import useWindowDimensions from '../Hooks/useWindowDimensions';
+import { useAuth } from '../AuthContext/AuthContext';
+
 import './Navbar.css'
 
 const ToggleTheme = (updateThemeState) => {
@@ -20,13 +24,19 @@ const ToggleTheme = (updateThemeState) => {
 }
 
 const Navbar = () => {
-  const [stateTheme, updateStateTheme] = useState(localStorage.getItem('theme'))
+  const [stateTheme, updateStateTheme] = useState(localStorage.getItem('theme'));
+
+  const width = useWindowDimensions().width;
+
+  const { user, login, logout } = useAuth();
 
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          <img src={stateTheme === 'dark' ? logoDark : logoLight} className='navbar-logo' alt="Planorama" />
+          {
+            width <= 400 ? <img src={logo} className='navbar-logo-icon' alt='P'/> : <img src={stateTheme === 'dark' ? logoDark : logoLight} className='navbar-logo' alt="Planorama" />
+          }
         </NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -37,13 +47,20 @@ const Navbar = () => {
               <NavLink className="nav-link" to="/"> Home </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/dashboard"> Dashboard </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/about-us"> About Us </NavLink>
             </li>
           </ul>
         </div>
-        <button className="navbar-login-btn btn btn-primary" type="button">
-            Login
-        </button> 
+        {
+          !!user ? (
+            <NavLink className="navbar-login-btn btn btn-primary" to="/profile"> {user.username} </NavLink>
+          ) : (
+            <NavLink className="navbar-login-btn btn btn-primary" to="/login"> Login </NavLink>
+          )
+        }
         <button className="btn theme-toggle" type="button" onClick={() => ToggleTheme(updateStateTheme)}>
           <span>
             {
