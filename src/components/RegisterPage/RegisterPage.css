@@ -1,0 +1,58 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.register-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.register-section {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-login-wrapper {
+    transition: all 0.3s ease;
+    background-color: var(--bs-body-bg-light);
+    padding: 10px;
+    border-radius: 7.5px;
+    border: 2px solid var(--bs-body-bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-login-btn {
+    margin: auto;
+}
+
+.register-page-text {
+    margin-bottom: 4px;
+}
+
+.register-text-box {
+    border-radius: 5px;
+    background-color: var(--highlight-10);
+    border-color: var(--highlight-warm-dark);
+}
+
+.register-result-message {
+    margin-top: 10px;
+}

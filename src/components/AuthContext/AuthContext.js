@@ -21,14 +21,8 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('data')
   };
 
-  const DeleteAccount = () => {
-    // Perform deletion logic, log the user out, and make the call to delete the user.
-    logout()
-
-  };
-
   return (
-    <AuthContext.Provider value={{ user, login, logout, DeleteAccount }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

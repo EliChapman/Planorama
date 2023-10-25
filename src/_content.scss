@@ -41,10 +41,14 @@ $primary: $highlight;
 
 
 [data-bs-theme="light"] {
-    --bs-body-bg: #f4f4f4;
+    --bs-body-bg: #e7e7e7;
+    --bs-body-bg-light: #f0f0f0;
+    --bs-body-bg-dark: #b4b4b4;
 }
 
 [data-bs-theme="dark"] {
     --bs-body-bg: #2f2f2f;
+    --bs-body-bg-light: #3b3b3b;
+    --bs-body-bg-dark: #1c1c1c;
     --bs-body-color: #d2d2d2;
 }

@@ -1,17 +1,15 @@
+import './Navbar.css'
+
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-
-import logoLight from '../../assets/logo-name-light.svg'
-import logoDark from '../../assets/logo-name-dark.svg'
-import logo from '../../assets/logo.svg'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
-import useWindowDimensions from '../Hooks/useWindowDimensions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/logo.svg'
+import logoDark from '../../assets/logo-name-dark.svg'
+import logoLight from '../../assets/logo-name-light.svg'
 import { useAuth } from '../AuthContext/AuthContext';
-
-import './Navbar.css'
+import useWindowDimensions from '../Hooks/useWindowDimensions';
 
 const ToggleTheme = (updateThemeState) => {
   let new_theme = ['dark', 'light'][(localStorage.getItem('theme') === 'dark' & 1)]

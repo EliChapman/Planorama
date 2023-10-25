@@ -1,0 +1,49 @@
+.upcoming-tasks-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    grid-gap: 5vw;
+}
+
+.upcoming-tasks-section {
+    background-color: var(--bs-body-bg-light);
+    border: 2px var(--highlight-cold-dark) solid;
+    border-radius: 5px;
+    aspect-ratio: 1/1.5;
+    width: 300px;
+    overflow-y: scroll;
+    overflow-y: auto;
+
+    /* hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@media (max-width: 425px) {
+    .upcoming-tasks-section {
+        width: 150px;
+    }
+}
+
+.upcoming-event {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* hide scrollbar for chrome, safari and opera */
+.upcoming-tasks-section::-webkit-scrollbar {
+    display: none;
+}
+
+.upcoming-refresh {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

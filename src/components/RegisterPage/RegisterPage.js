@@ -1,9 +1,12 @@
+import './RegisterPage.css'
+
+import { NavLink, Navigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
+import logoDark from '../../assets/logo-name-dark.svg'
+import logoLight from '../../assets/logo-name-light.svg'
 import { useAuth } from '../AuthContext/AuthContext';
-import { NavLink, Navigate } from 'react-router-dom';
-
-import './RegisterPage.css'
+import useThemeValue from '../Hooks/useThemeValue';
 
 async function registerUser(credentials) {
     try {
@@ -17,11 +20,10 @@ async function registerUser(credentials) {
     
         if (!response.ok) {
           // Handle server errors here, e.g., display an error message to the user
-          throw new Error(response.status + ': ' + await response.text());
+          return { success: false, error: {code : response.status, message : await response.text()} };
         }
-        console.log(response)
-        const data = await response.json();
-        // You can do something with the data, like redirect to a login page or show a success message to the user
+
+        return { success: true, error: null };
     
     } catch (error) {
         console.error('Registration error:', error);
@@ -32,32 +34,42 @@ async function registerUser(credentials) {
 function Register() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+
+    const [result, setResult] = useState({success: null, message: null})
   
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await registerUser({
-            username,
-            password,
-        });
+    const handleSubmit = async e => {
+      e.preventDefault();
+      const result = await registerUser({
+        username,
+        password
+      });
+      console.log(result)
+      if (result.success) {
+        setResult({success: true, message: 'Registered Successfully!'})
+      } else {
+        setResult({success: false, message: result.error.message})
+      }
     }
    
     return(
-        <div className="register-wrapper">
-            <h1>Please Register</h1>
-            <form onSubmit={handleSubmit}>
-            <label>
-                <p>Username</p>
-                <input type="text" onChange={e => setUserName(e.target.value)} />
-            </label>
-            <label>
-                <p>Password</p>
-                <input type="password" onChange={e => setPassword(e.target.value)} />
-            </label>
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-            </form>
+      <div className="register-wrapper">
+      <img src={useThemeValue() === 'dark' ? logoDark : logoLight} className='navbar-logo' alt="Planorama" />
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <label className='register-section'>
+          <p className='register-page-text'>Username</p>
+          <input className='register-text-box' type="text" placeholder="Enter username" onChange={e => setUserName(e.target.value)} />
+        </label>
+        <label className='register-section'>
+          <p className='register-page-text'>Password</p>
+          <input className='register-text-box' type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
+        </label>
+        <div className='submit-section'>
+          <button className='btn btn-primary' type="submit">Submit</button>
         </div>
+      </form>
+      <span style={{color: result.success ? 'var(--bs-success)' : 'var(--bs-danger)'}} className='register-result-message'>{result.message}</span>
+    </div>
     )
 }
 
@@ -66,10 +78,13 @@ const RegisterPage = () => {
 
     if (!user) {
         return (
-          <div className='login-page'>
+          <div className='register-page'>
             <Register />
-            <NavLink className='nav-link' to='/Login'> Login </NavLink>
-          </div>
+            <div className='register-login-wrapper'>
+              <p className='register-page-text'>Already have an account?</p>
+              <NavLink className='register-login-btn btn btn-secondary' to='/login'> Login </NavLink>
+            </div>
+        </div>
         )
       } 
       else {

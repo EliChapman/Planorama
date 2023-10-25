@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import { NavLink, Navigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import useToken from '../Hooks/useToken';
-
 import './LoginPage.css';
+
+import { NavLink, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+
+import PropTypes from 'prop-types';
+import logoDark from '../../assets/logo-name-dark.svg'
+import logoLight from '../../assets/logo-name-light.svg'
+import useThemeValue from '../Hooks/useThemeValue';
+import useToken from '../Hooks/useToken';
 
 async function loginUser(credentials) {
   try {
@@ -17,9 +21,9 @@ async function loginUser(credentials) {
   
       if (!response.ok) {
         // Handle server errors here, e.g., display an error message to the user
-        throw new Error(response.status + ': ' + await response.text());
+        return await { success: false, error: {code : response.status, message : await response.text()} };
       } else {
-        return await response.json();
+        return await { success: true, error: null, token: response.json() };
       }
 
   } catch (error) {
@@ -28,37 +32,44 @@ async function loginUser(credentials) {
   }
 }
 
+
 function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
+  const [errorMessage, setErrorMessage] = useState('')
+
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginUser({
+    const result = await loginUser({
       username,
       password
     });
-    if (!!token) {
-      setToken([username, token]);
+    if (result.success) {
+      setToken([username, await result.token]);
+    } else {
+      setErrorMessage(result.error.message)
     }
   }
 
   return(
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <img src={useThemeValue() === 'dark' ? logoDark : logoLight} className='navbar-logo' alt="Planorama" />
+      <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
+        <label className='login-section'>
+          <p className='login-page-text'>Username</p>
+          <input className='login-text-box' type="text" placeholder="Enter username" onChange={e => setUserName(e.target.value)} />
         </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
+        <label className='login-section'>
+          <p className='login-page-text'>Password</p>
+          <input className='login-text-box' type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
         </label>
-        <div>
-          <button type="submit">Submit</button>
+        <div className='submit-section'>
+          <button className='btn btn-primary' type="submit">Submit</button>
         </div>
       </form>
+      <span className='login-error-message'>{errorMessage}</span>
     </div>
   )
 }
@@ -74,7 +85,10 @@ const LoginPage = () => {
     return (
       <div className='login-page'>
         <Login setToken={setToken} />
-        <NavLink className='nav-link' to='/register'> Register </NavLink>
+        <div className='login-register-wrapper'>
+          <p className='login-page-text'>Don't have an account?</p>
+          <NavLink className='login-register-btn btn btn-secondary' to='/register'> Register </NavLink>
+        </div>
       </div>
     )
   } 
