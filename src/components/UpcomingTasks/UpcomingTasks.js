@@ -69,14 +69,12 @@ const UpcomingTasks = () => {
   
         if (!!events) {
           for (const event of events) {
-            console.log(event.completed)
             const eventTime = new Date(event.date)
             const todayTime = new Date()
 
             const daysUntilTarget = Math.ceil((eventTime - todayTime) / (1000 * 60 * 60 * 24));
 
             if (event.completed == 'false' || !event.completed) {
-                console.log(event)
                 if (daysUntilTarget <= 5 && daysUntilTarget >= 0) {
 
                     eventsList.push(

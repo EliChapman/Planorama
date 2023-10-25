@@ -23,7 +23,7 @@ async function addEvent(username, event) {
           // Handle server errors here, e.g., display an error message to the user
           throw new Error(response.status + ': ' + await response.text());
         }
-        console.log(response)
+  
         const data = await response.json();
     
     } catch (error) {

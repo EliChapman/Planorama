@@ -26,7 +26,9 @@
     background-color: var(--highlight-40);
     margin-right: 2vw;
     width: 45%;
-    height: 40vh;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .planning-text {
@@ -49,7 +51,9 @@
     background-color: var(--highlight-40);
     margin-left: 2vw;
     width: 45%;
-    height: 40vh;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .photo-text {
@@ -72,7 +76,9 @@
     background-color: var(--highlight-40);
     margin-right: 2vw;
     width: 45%;
-    height: 40vh;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .memories-text {

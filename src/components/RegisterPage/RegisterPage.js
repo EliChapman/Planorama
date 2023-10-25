@@ -43,7 +43,7 @@ function Register() {
         username,
         password
       });
-      console.log(result)
+
       if (result.success) {
         setResult({success: true, message: 'Registered Successfully!'})
       } else {

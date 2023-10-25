@@ -96,7 +96,7 @@
 .calendar-date::before {
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(255, 255, 255, 0.06),
+    var(--highlight-10),
     transparent 40%
   );
   z-index: 3;
@@ -105,7 +105,7 @@
 .calendar-date::after {
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y), 
-    rgba(255, 255, 255, 0.3),
+    var(--highlight-30),
     transparent 40%
   );
   z-index: 1;
